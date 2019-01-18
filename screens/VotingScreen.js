@@ -7,24 +7,24 @@ export default class VotingScreen extends React.Component {
     title: 'Voting',
   };
 
-  onPressVote () => {
+  // onPressVote () => {
 
-  }
+  // }
 
   render() {
     return (
       <ScrollView style={styles.container}>
         <Text>Here is where I will but the two cards for voting and connect it to the store somehow</Text>
-        <Button 
-        onPress={onPressVote}
+        {/* <Button 
+        onPress={}
         title="PASS"
         color="#0000cd"
         />
         <Button 
-        onPress={onPressVote}
+        onPress={}
         title="FAIL"
         color="#cd5c5c"
-        />
+        /> */}
       </ScrollView>
     );
   }
