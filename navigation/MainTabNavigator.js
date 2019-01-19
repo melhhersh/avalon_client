@@ -6,10 +6,14 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import QuestScreen from '../screens/QuestScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import VotingScreen from '../screens/VotingScreen'
+import VotingScreen from '../screens/VotingScreen';
+import JoinGameScreen from '../screens/JoinGameScreen';
+import NewGameScreen from '../screens/NewGameScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
+  JoinGame: JoinGameScreen,
+  NewGame: NewGameScreen
 });
 
 HomeStack.navigationOptions = {
@@ -31,7 +35,7 @@ const QuestStack = createStackNavigator({
 });
 
 QuestStack.navigationOptions = {
-  tabBarLabel: 'Quests',
+  tabBarLabel: 'Quest Board',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}

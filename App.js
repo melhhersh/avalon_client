@@ -9,15 +9,6 @@ export default class App extends React.Component {
     this.state = {
       isLoadingComplete: false,
     };
-    this.connecToServer = this.connecToServer.bind(this)
-  }
-
-  connecToServer(){
-    fetch('/')
-  }
-  
-  componentDidMount() {
-    this.connecToServer();
   }
 
   render() {
