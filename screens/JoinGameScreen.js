@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TextInput, Text, View, Button } from 'react-native';
+import { TextInput, Text, View, Button, Alert } from 'react-native';
 
 export default class JoinGameScreen extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ export default class JoinGameScreen extends Component {
         <Text>Game ID</Text>
       <TextInput
         style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-        onChangeText={(text) => this.setState({GameId: text})}
+        onChangeText={(text) => this.setState({gameId: text})}
         value={this.state.text}
       />
       <Text>Your Name</Text>
@@ -24,10 +24,17 @@ export default class JoinGameScreen extends Component {
         onChangeText={(text) => this.setState({name: text})}
         value={this.state.text}
       />
-      <Button 
-               onPress={() => navigate('Quests')}
-                title="Ready to play!"
-                color="#0000cd"
+        <Button 
+            title="Ready to play!"
+            color="#0000cd"
+            onPress={() =>{
+                if (this.state.name.trim() === "" || this.state.gameId.trim() === "") {
+                    this.setState(() => ({ nameError: "Name required." }))
+                    Alert.alert('Name and game ID are required')
+                  } else {
+                    this.setState(() => ({ nameError: null }));
+                    navigate('Quests')}
+                  }}
             />
       </View>
     );

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { TextInput, Text, View, Picker, Button } from 'react-native';
+import { TextInput, Text, View, Picker, Button, Alert } from 'react-native';
 
 export default class NewGameScreen extends Component {
   constructor(props) {
     super(props);
     this.state = { players: '',
-                   name: '' };
+                   name: '',
+                   nameError: '' };
   }
 
   render() {
@@ -16,10 +17,6 @@ export default class NewGameScreen extends Component {
         <Picker
             selectedValue={this.state.players}
             onValueChange={(itemValue, itemIndex) => this.setState({players: itemValue})}>
-            <Picker.Item label="1" value="1" />
-            <Picker.Item label="2" value="2" />
-            <Picker.Item label="3" value="3" />
-            <Picker.Item label="4" value="4" />
             <Picker.Item label="5" value="5" />
             <Picker.Item label="6" value="6" />
             <Picker.Item label="7" value="7" />
@@ -34,9 +31,16 @@ export default class NewGameScreen extends Component {
         value={this.state.text}
       />
          <Button 
-               onPress={() => navigate('Quests')}
-                title="Ready to play!"
-                color="#0000cd"
+            title="Ready to play!"
+            color="#0000cd"
+            onPress={() =>{
+                if (this.state.name.trim() === "") {
+                    this.setState(() => ({ nameError: "Name required." }))
+                    Alert.alert('Name is required')
+                  } else {
+                    this.setState(() => ({ nameError: null }));
+                    navigate('Quests')}
+                  }}
             />
       </View>
     );
