@@ -2,8 +2,17 @@ import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
-import firebase from 'firebase';
+import * as firebase from 'firebase';
 
+const config = {
+  apiKey: "AIzaSyDQIVx_H8Ie9vNa_eyeNfVgfRZbx8jniRs",
+  authDomain: "avalon-63a56.firebaseapp.com",
+  databaseURL: "https://avalon-63a56.firebaseio.com",
+  projectId: "avalon-63a56",
+  storageBucket: "avalon-63a56.appspot.com",
+  messagingSenderId: "306994474068"
+};
+firebase.initializeApp(config);
 
 export default class App extends React.Component {
   constructor(props) {
@@ -12,17 +21,6 @@ export default class App extends React.Component {
       isLoadingComplete: false,
     };
   }
-  componentDidMount(){
-    var config = {
-      apiKey: "AIzaSyDQIVx_H8Ie9vNa_eyeNfVgfRZbx8jniRs",
-      authDomain: "avalon-63a56.firebaseapp.com",
-      databaseURL: "https://avalon-63a56.firebaseio.com",
-      projectId: "avalon-63a56",
-      storageBucket: "avalon-63a56.appspot.com",
-      messagingSenderId: "306994474068"
-    };
-    firebase.initializeApp(config);
-   }
 
   render() {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
