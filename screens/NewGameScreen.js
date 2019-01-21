@@ -1,28 +1,26 @@
 import React, { Component } from 'react';
 import { TextInput, Text, View, Picker, Button, Alert } from 'react-native';
-import * as firebase from 'firebase';
+import axios from 'axios'
 
 export default class NewGameScreen extends Component {
   constructor(props) {
     super(props);
-    this.state = { players: '',
+    this.state = { players: 5,
                    roomName: '',
                    name: '',
                    nameError: '' };
   }
 
-  async createRoom(players, name, roomName){
-      try {
-        let temp = await firebase.collection("Rooms").doc(roomName).set({
-            roomSize: players,
-            name: name,
-            Players: [name]
-        });
-        console.log(temp);
-      } catch (err) {
-          console.log(err);
+  async createRoom(players, roomName, name){
+    let newRoom = await axios({
+        method: 'post',
+        url:'http://localhost:5000/api/create',
+        data:{
+            numPlayers: players,
+            roomName,
+            name
       }
-
+    }) 
   }
 
   render() {
@@ -60,9 +58,9 @@ export default class NewGameScreen extends Component {
                     this.setState(() => ({ nameError: "Name required." }))
                     Alert.alert('Name is required')
                   } else {
-                    this.createRoom(this.state.players, this.state.name, this.state.roomName)}
-                    // this.setState(() => ({ nameError: null }));
-                    // navigate('Quests')
+                    this.createRoom(this.state.players, this.state.roomName, this.state.name)
+                    this.setState(() => ({ nameError: null }));
+                    navigate('Quests')}
                   }}
             />
       </View>
