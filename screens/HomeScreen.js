@@ -26,13 +26,13 @@ export default class HomeScreen extends React.Component {
           <View style={styles.welcomeContainer}>
             <Image
               source={require('../assets/images/avalon.jpg')}
-              style={styles.welcomeImage}
+              style={styles.welcomeImage} 
             />
           </View>
 
           <View style={styles.getStartedContainer}>
 
-            <Text style={styles.getStartedText}>Welcome to the game of Avalon</Text>
+            <Text style={styles.getStartedText}>Welcome to the game of Avalon!</Text>
 
             <Text style={styles.getStartedText}>
               Please choose if you'd like to join or create a game below
@@ -57,7 +57,7 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'gray',
   },
   developmentModeText: {
     marginBottom: 20,
@@ -75,8 +75,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   welcomeImage: {
-    width: 100,
-    height: 80,
+    width: 350,
+    height: 250,
     resizeMode: 'contain',
     marginTop: 3,
     marginLeft: -10,
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   },
   getStartedText: {
     fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
+    color: 'white',
     lineHeight: 24,
     textAlign: 'center',
   },

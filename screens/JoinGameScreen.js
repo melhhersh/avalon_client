@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { TextInput, Text, View, Button, Alert } from 'react-native';
 import axios from 'axios'
+import { establishSocket } from '../utilities/socket';
+import store from '../store'
 
 export default class JoinGameScreen extends Component {
   constructor(props) {
@@ -10,14 +12,20 @@ export default class JoinGameScreen extends Component {
   }
 
   async joinRoom(roomName, name){
-    await axios({
-      method: 'post',
-      url:'http://localhost:5000/api/join',
-      data:{
-        roomName,
-        name,
-      }
-    })
+    try {
+      await axios({
+        method: 'post',
+        url:'http://192.168.0.111:5000/api/join',
+        data:{
+          roomName,
+          name,
+        }
+      })
+      this.props.navigation.navigate('Quests')
+
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   render() {
@@ -46,8 +54,9 @@ export default class JoinGameScreen extends Component {
                   } else {
                     this.joinRoom(this.state.roomName, this.state.name)
                     this.setState(() => ({ nameError: null }));
-                    navigate('Quests')}
-                  }}
+                  }
+                }
+              }
             />
       </View>
     );

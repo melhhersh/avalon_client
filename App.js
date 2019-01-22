@@ -3,12 +3,18 @@ import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
 
+
 export default class App extends React.Component {
+  roomName = ''
+
   constructor(props) {
     super(props);
+    
     this.state = {
       isLoadingComplete: false,
+      gameState: undefined
     };
+
   }
 
   render() {
@@ -24,7 +30,7 @@ export default class App extends React.Component {
       return (
         <View style={styles.container}>
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-          <AppNavigator />
+          <AppNavigator state={this.state} />
         </View>
       );
     }
