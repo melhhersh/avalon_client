@@ -48,15 +48,15 @@ const SettingsStack = createStackNavigator({
   Settings: SettingsScreen,
 });
 
-// SettingsStack.navigationOptions = {
-//   tabBarLabel: 'Settings',
-//   tabBarIcon: ({ focused }) => (
-//     <TabBarIcon
-//       focused={focused}
-//       name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
-//     />
-//   ),
-// };
+SettingsStack.navigationOptions = {
+  tabBarLabel: 'Character',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-person' : 'md-person'}
+    />
+  ),
+};
 
 const VotingStack = createStackNavigator({
   Voting: VotingScreen,
@@ -76,4 +76,5 @@ export default createBottomTabNavigator({
   HomeStack,
   QuestStack,
   VotingStack,
+  SettingsStack
 });
