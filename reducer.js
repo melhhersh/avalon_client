@@ -44,7 +44,7 @@
 //   return async (dispatch) => {
 //     const { data } = await axios({
 //         method: 'post',
-//         url:'http://192.168.0.111:5000/api/create',
+//         url:'http://172.16.21.94:5000/api/create',
 //         data:{
 //             numPlayers: players,
 //             roomName,
@@ -66,7 +66,7 @@
 //     return async (dispatch) => {
 //         const { data } = await axios({
 //             method: 'post',
-//             url:'http://192.168.0.111:5000/api/join',
+//             url:'http://172.16.21.94:5000/api/join',
 //             data:{
 //               roomName,
 //               name,
@@ -86,7 +86,7 @@
 //       return async (dispatch) => {
 //           const { data } =  await axios({
 //             method: 'post',
-//             url:'http://192.168.0.111:5000/api/vote',
+//             url:'http://172.16.21.94:5000/api/vote',
 //             data:{
 //               id,
 //               vote,

@@ -15,7 +15,7 @@ export default class NewGameScreen extends Component {
     try {
       let newRoom = await axios({
         method: 'post',
-        url:'http://192.168.0.111:5000/api/create',
+        url:'http://172.16.21.94:5000/api/create',
         data:{
             numPlayers: players,
             roomName,
@@ -23,7 +23,6 @@ export default class NewGameScreen extends Component {
       }
     });
 
-    let io = establishSocket();
 
     io.on('data', (data) => {
       if (data.roomName === roomName) {

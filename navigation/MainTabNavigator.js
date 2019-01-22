@@ -9,6 +9,7 @@ import SettingsScreen from '../screens/SettingsScreen';
 import VotingScreen from '../screens/VotingScreen';
 import JoinGameScreen from '../screens/JoinGameScreen';
 import NewGameScreen from '../screens/NewGameScreen';
+import RuleScreen from '../screens/RuleScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -40,6 +41,20 @@ QuestStack.navigationOptions = {
     <TabBarIcon
       focused={focused}
       name={Platform.OS === 'ios' ? 'ios-compass' : 'md-compass'}
+    />
+  ),
+};
+
+const RuleStack = createStackNavigator({
+  Rules: RuleScreen,
+});
+
+RuleStack.navigationOptions = {
+  tabBarLabel: 'Start Video',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-videocam' : 'md-videocam'}
     />
   ),
 };
@@ -76,5 +91,6 @@ export default createBottomTabNavigator({
   HomeStack,
   QuestStack,
   VotingStack,
-  SettingsStack
+  SettingsStack,
+  RuleStack
 });

@@ -35,7 +35,7 @@ export default class CharacterScreen extends React.Component {
     try {
       let {data: temp} = await axios({
         method: 'get',
-        url:'http://192.168.0.111:5000/api/character',
+        url:'http://172.16.21.94:5000/api/character',
       });
       this.setState(temp)
       console.log(this.state, "STATE")

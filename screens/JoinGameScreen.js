@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { TextInput, Text, View, Button, Alert } from 'react-native';
 import axios from 'axios'
-import { establishSocket } from '../utilities/socket';
-import store from '../store'
 
 export default class JoinGameScreen extends Component {
   constructor(props) {
@@ -15,7 +13,7 @@ export default class JoinGameScreen extends Component {
     try {
       await axios({
         method: 'post',
-        url:'http://192.168.0.111:5000/api/join',
+        url:'http://172.16.21.94:5000/api/join',
         data:{
           roomName,
           name,
